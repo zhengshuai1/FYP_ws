@@ -1,0 +1,24 @@
+<launch>
+
+    <!-- launch camera driver -->
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="enable_pointcloud" value="true" />
+        <arg name="publish_tf" value="true" />
+        <arg name="align_depth" value="true" />
+        <arg name="clip_distance" default="1.1"/>
+        <arg name="depth_width"         default="848"/>
+        <arg name="depth_height"        default="480"/>
+        <arg name="color_width"         default="960"/>
+        <arg name="color_height"        default="540"/>
+        <arg name="depth_fps"           value="60"/>
+        <arg name="color_fps"           value="60"/>
+    </include>
+
+<!--&lt;!&ndash; cal7.26    &ndash;&gt;-->
+<!--    <node pkg="tf2_ros" type="static_transform_publisher" name="right_arm_camera_link_broadcaster"-->
+<!--      args=" 0.42413926 0.64744469 0.68486781 -0.49501107 0.50034013 0.50002042 0.50458237 /arm_R_link0 /camera_link" />-->
+
+<!--&lt;!&ndash;0.42413926,  1.57812779,  0.68486781, -0.49501107,  0.50034013, 0.50002042,  0.50458237 arm_L_link0 camera_link&ndash;&gt;-->
+<!--    <node pkg="tf2_ros" type="static_transform_publisher" name="left_arm_camera_link_broadcaster"-->
+<!--      args=" 0.42413926 1.57812779 0.68486781 -0.49501107 0.50034013 0.50002042 0.50458237 /arm_L_link0 /camera_link" />-->
+</launch>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c79c9c19-8fd0-453d-85d9-915ad31f6397" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/.DualMz04.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/.DualMz04.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_base_0Mesh.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_base_1Mesh.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_base_2Mesh.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_coupler_0Mesh.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_driver_0Mesh.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_follower_0Mesh.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link0_0Mesh.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link0_0Mesh.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link1_0Mesh.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link1_0Mesh.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link2_0Mesh.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link2_0Mesh.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link3_0Mesh.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link3_0Mesh.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link4_0Mesh.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link4_0Mesh.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link5_0Mesh.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link5_0Mesh.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link6_0Mesh.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_link6_0Mesh.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_pad_0Mesh.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_spring_link_0Mesh.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/.DualMz04_vacuum_gripper_0Mesh.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_base_0Mesh.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_base_1Mesh.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_base_2Mesh.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_coupler_0Mesh.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_driver_0Mesh.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_follower_0Mesh.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link0_0Mesh.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link0_0Mesh.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link1_0Mesh.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link1_0Mesh.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link2_0Mesh.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link2_0Mesh.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link3_0Mesh.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link3_0Mesh.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link4_0Mesh.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link4_0Mesh.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link5_0Mesh.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link5_0Mesh.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link6_0Mesh.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_link6_0Mesh.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_pad_0Mesh.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_spring_link_0Mesh.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/protos/DualMz04_meshes/DualMz04_vacuum_gripper_0Mesh.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/worlds/.dual_arm.wbproj" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/worlds/.dual_arm.wbproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nachi_webots/worlds/dual_arm.wbt" beforeDir="false" afterPath="$PROJECT_DIR$/../nachi_webots/worlds/dual_arm.wbt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="JupyterTrust" id="768a629d-62c0-419f-a615-bf40d9893999" />
+  <component name="ProjectId" id="1wt2jxSH5XjQHkT52zkdloeiQl0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c79c9c19-8fd0-453d-85d9-915ad31f6397" name="Default Changelist" comment="" />
+      <created>1629263703512</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1629263703512</updated>
+      <workItem from="1629263704723" duration="115000" />
+      <workItem from="1629301388284" duration="24000" />
+      <workItem from="1629301427411" duration="130000" />
+      <workItem from="1629629953938" duration="1305000" />
+      <workItem from="1630381566029" duration="978000" />
+      <workItem from="1631191615004" duration="141000" />
+    </task>
+    <task id="LOCAL-00001" summary="tracking version 1">
+      <created>1629263779776</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1629263779776</updated>
+    </task>
+    <task id="LOCAL-00002" summary="tracking version 1">
+      <created>1629263805305</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1629263805305</updated>
+    </task>
+    <task id="LOCAL-00003" summary="tracking version 1.1">
+      <created>1629301481793</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1629301481793</updated>
+    </task>
+    <task id="LOCAL-00004" summary="tracking version 1.2">
+      <created>1629630003773</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1629630003773</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add tcp/ip and modbus test code">
+      <created>1631191703435</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1631191703435</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tracking version 1" />
+    <MESSAGE value="tracking version 1.1" />
+    <MESSAGE value="tracking version 1.2" />
+    <MESSAGE value="add tcp/ip and modbus test code" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tcp/ip and modbus test code" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1629802069213">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1629802069213" />
+    <state x="482" y="187" key="SettingsEditor" timestamp="1629630024422">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1629630024422" />
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1631191715068">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1631191715068" />
+  </component>
+</project>

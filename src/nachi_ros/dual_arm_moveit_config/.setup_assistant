@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: mz04_description
+    relative_path: robots/dual_mz04_arm.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/dual_arm.srdf
+  CONFIG:
+    author_name: sszheng
+    author_email: sszheng@mae.cuhk.edu.hk
+    generated_timestamp: 1625391622

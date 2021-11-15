@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<root main_tree_to_execute="BehaviorTree">
+    <!-- ////////// -->
+    <BehaviorTree ID="BehaviorTree">
+        <Sequence name="RoPort Curiosity demo">
+            <ForceSuccess>
+                <Action ID="ExecuteGroupAngularJointStates" goal="0 30 -20 0 -90 0" group_name="left_arm" name="Left arm go to prepare pose" service_name="execute_group_joint_states" tolerance="0.01"/>
+            </ForceSuccess>
+            <ForceSuccess>
+                <Action ID="ExecuteGroupAngularJointStates" goal="0 30 -20 0 -90 0" group_name="right_arm" name="Right arm go to prepare pose" service_name="execute_group_joint_states" tolerance="0.01"/>
+            </ForceSuccess>
+            <Action ID="ExecuteAllPoses" allow_collision="0" goal_type="0" goals="0.3 -0.1 0.3 0.5 0.5 0.5 -0.5;0.3 0.1 0.3 0.5 -0.5 0.5 0.5" group_names="left_arm right_arm" name="All arms go to an antipodal pose" service_name="execute_all_poses" stamps="2 2"/>
+            <Action ID="ExecuteAllPoses" allow_collision="1" goal_type="0" goals="0.3 -0.05 0.3 0.5 0.5 0.5 -0.5;0.3 0.05 0.3 0.5 -0.5 0.5 0.5" group_names="left_arm right_arm" name="All hands shift left 0.1" service_name="execute_all_poses" stamps="0.5 0.5"/>
+            <Action ID="ExecuteAllPoses" allow_collision="1" goal_type="0" goals="0.3 -0.1 0.4 0.5 0.5 0.5 -0.5;0.3 0.1 0.4 0.5 -0.5 0.5 0.5" group_names="left_arm right_arm" name="All hands back to middle" service_name="execute_all_poses" stamps="0.5 0.5"/>
+        </Sequence>
+    </BehaviorTree>
+    <!-- ////////// -->
+    <TreeNodesModel>
+        <Action ID="ExecuteAllPlans">
+            <input_port default="0 0 0 0 0 0 1" name="all_poses">Poses for each group to visit. Separate groups with '|', separate poses with ';'</input_port>
+            <input_port default="0" name="allow_collision">If true, disable collision check during the movement</input_port>
+            <input_port default="0" name="goal_type">BASE_ABS(0): Absolute pose wrt the base frame (robot base); BASE_REL(1): Relative pose wrt the base frame transferred to current eef base position; EEF(2): pose wrt the eef frame</input_port>
+            <input_port default="panda_arm" name="group_names">Names of groups to control, separate with space</input_port>
+            <input_port default="execute_all_plans" name="service_name">DO NOT CHANGE</input_port>
+            <input_port default="1" name="stamps">Time stamps for each group reaching the goal, separate with ' '</input_port>
+        </Action>
+        <Action ID="ExecuteAllPoses">
+            <input_port default="0" name="allow_collision">If true, disable collision check during the movement</input_port>
+            <input_port default="0" name="goal_type">BASE_ABS(0): Absolute pose wrt the base frame (robot base); BASE_REL(1): Relative pose wrt the base frame transferred to current eef base position; EEF(2): pose wrt the eef frame</input_port>
+            <input_port default="0 0 0 0 0 0 1" name="goals">Goals for each group to reach. Only define one goal for one group. Separate with ';'</input_port>
+            <input_port default="panda_arm" name="group_names">Names of groups to control, separate with space</input_port>
+            <input_port default="execute_all_poses" name="service_name">DO NOT CHANGE</input_port>
+            <input_port default="1" name="stamps">Time stamps for each group reaching the goal, separate with space</input_port>
+        </Action>
+        <Action ID="ExecuteBinaryAction">
+            <input_port default="0" name="device_id">ID of the device to be controlled</input_port>
+            <input_port default="0" name="enable">If enable/activate/start the device. For grippers, enable means close the gripper</input_port>
+            <input_port name="service_name">Name of the service. Change this accordingly.</input_port>
+            <input_port default="0" name="value">[Optional] The value used when enabling the target</input_port>
+        </Action>
+        <Action ID="ExecuteGroupAngularJointStates">
+            <input_port default="0 0 0 0 0 0 0" name="goal">Joint positions in degrees. Separate with ' '</input_port>
+            <input_port default="panda_arm" name="group_name">The group to be controlled</input_port>
+            <input_port default="execute_group_joint_states" name="service_name">DO NOT CHANGE</input_port>
+            <input_port default="0.01" name="tolerance">Tolerance for considering the goal has been reached, default 0.01 m/rad</input_port>
+        </Action>
+        <Action ID="ExecuteGroupLinearJointStates">
+            <input_port default="0.04 0.04" name="goal"/>
+            <input_port default="hand" name="group_name"/>
+            <input_port default="execute_group_joint_states" name="service_name"/>
+            <input_port default="0.001" name="tolerance"/>
+        </Action>
+        <Action ID="ExecuteGroupPlan">
+            <input_port default="0" name="allow_collision">If true, disable collision check during the movement</input_port>
+            <input_port default="0" name="goal_type">BASE_ABS(0): Absolute pose wrt the base frame (robot base); BASE_REL(1): Relative pose wrt the base frame transferred to current eef base position; EEF(2): pose wrt the eef frame</input_port>
+            <input_port default="panda_arm" name="group_name">The group providing the reference frame</input_port>
+            <input_port default="0 0 0.1 0 0 0 1;0 0 -0.1 0 0 0 1" name="poses">Trajectory poses in plan. Each pose is relevant to the last pose. Separate with ';'</input_port>
+            <input_port default="execute_group_plan" name="service_name">DO NOT CHANGE</input_port>
+            <input_port default="2" name="stamp">Time interval for reaching each pose, in seconds</input_port>
+        </Action>
+        <Action ID="ExecuteGroupPose">
+            <input_port default="0 0 0 0 0 0 1" name="goal">Pose of the goal</input_port>
+            <input_port default="0" name="goal_type">BASE_ABS(0): Absolute pose wrt the base frame (robot base); BASE_REL(1): Relative pose wrt the base frame transferred to current eef base position; EEF(2): pose wrt the eef frame</input_port>
+            <input_port default="panda_arm" name="group_name">The group providing the reference frame</input_port>
+            <input_port default="execute_group_pose" name="service_name">DO NOT CHANGE</input_port>
+            <input_port default="0.01" name="tolerance">Tolerance for considering the goal has been reached, default 0.01 m/rad</input_port>
+        </Action>
+        <Action ID="GetPreparePose">
+            <input_port default="0" name="is_absolute">If true, the shift vector is wrt the base frame, else wrt the target pose frame</input_port>
+            <input_port default="0 0 0 0 0 0 1" name="pose">Target pose of the end-effector in base reference frame</input_port>
+            <output_port name="pre_pose">The prepare pose in base reference frame</output_port>
+            <input_port default="get_prepare_pose" name="service_name">DO NOT CHANGE</input_port>
+            <input_port default="0 0 -0.2" name="shift">Shift vector pointing from the target pose to prepare pose, in meters</input_port>
+        </Action>
+        <Action ID="GetTransformedPose">
+            <input_port name="pose"/>
+            <input_port default="get_transformed_pose" name="service_name"/>
+            <input_port default="camera_link" name="source_frame"/>
+            <input_port default="base_link" name="target_frame"/>
+            <output_port name="trans_pose"/>
+        </Action>
+        <Action ID="SenseManipulationPoses">
+            <input_port default="0" name="algorithm_id">uint8 Type id of the used algorithm.</input_port>
+            <input_port default="right_arm_rgb right_arm_depth" name="device_names">Names of the used data capturing devices. Separate with ' '</input_port>
+            <output_port name="poses">PoseArray Manipulation pose of the end-effector in device (i.e., camera) frame</output_port>
+            <input_port default="sense_manipulation_poses" name="service_name">Name of the service, DO NOT CHANGE</input_port>
+        </Action>
+    </TreeNodesModel>
+    <!-- ////////// -->
+</root>
+

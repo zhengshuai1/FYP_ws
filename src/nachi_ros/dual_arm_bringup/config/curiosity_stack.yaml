@@ -1,0 +1,41 @@
+solver_options:
+    regularization: 1e-3
+    back_end: "osqp"
+
+stack:
+    - ["Torso", "LeftArm", "RightArm", "ComXY"]
+
+constraints: ["JointLimits", "VelocityLimits"]
+
+Torso:
+    type: "Cartesian"
+    name: "torso"
+    distal_link: "waist_link_3"
+    base_link: "summit_xl_base_footprint"
+    lambda: 0.1
+
+LeftArm:
+    type: "Cartesian"
+    name: "left_arm"
+    distal_link: "arm_L_link7"
+    base_link: "summit_xl_base_footprint"
+    lambda: 0.1
+
+RightArm:
+    type: "Cartesian"
+    name: "right_arm"
+    distal_link: "arm_R_link7"
+    base_link: "summit_xl_base_footprint"
+    lambda: 0.1
+
+ComXY:
+    type: "Com"
+    lambda: 0.1
+    indices: [0, 1]
+    weight: 10
+
+JointLimits:
+    type: "JointLimits"
+
+VelocityLimits:
+    type: "VelocityLimits"

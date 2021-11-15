@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: mz04_description
+    relative_path: robots/left_arm.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/left_arm.srdf
+  CONFIG:
+    author_name: sszheng
+    author_email: sszheng0@163.com
+    generated_timestamp: 1627302632

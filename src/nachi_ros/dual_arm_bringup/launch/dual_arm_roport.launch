@@ -1,0 +1,30 @@
+<launch>
+    <param name="/use_sim_time" value="true" />
+
+<!--    <node pkg="roport" type="roport_moveit_server.py" name="roport_moveit_server" output="screen">-->
+<!--        <rosparam param="group_names">['left_arm', 'right_arm']</rosparam>-->
+<!--        <rosparam param="ee_links">['hand_L_ee_link', 'hand_R_ee_link']</rosparam>-->
+<!--        <rosparam param="ref_frames">['arm_L_link0', 'arm_R_link0']</rosparam>-->
+<!--    </node>-->
+
+    <node pkg="roport" type="roport_moveit_server.py" name="roport_moveit_server" output="screen">
+        <rosparam param="group_names">['left_arm', 'right_arm','dual_arm']</rosparam>
+        <rosparam param="ee_links">['hand_L_ee_link', 'hand_R_ee_link', '']</rosparam>
+<!--        <rosparam param="ee_links">['arm_L_link6', 'arm_R_link6', '']</rosparam>-->
+<!--        <rosparam param="ref_frames">['base', 'base','base']</rosparam>-->
+        <rosparam param="ref_frames">['arm_L_link0', 'arm_R_link0','base']</rosparam>
+    </node>
+
+<!--    <node pkg="roport" type="roport_control_server" name="roport_control_server" output="screen">-->
+<!--        <rosparam param="group_names">['left_arm', 'right_arm']</rosparam>-->
+<!--        <rosparam param="ee_links">['hand_L_ee_link', 'hand_R_ee_link']</rosparam>-->
+<!--        <param name="reference_frame" value="base"/>-->
+<!--    </node>-->
+
+    <!-- Launch the sensing server -->
+<!--    <node pkg="roport" type="roport_sensing_server.py" name="roport_sensing_server" output="screen">-->
+<!--        <rosparam param="device_names">['left_hand_rgb', 'left_hand_depth']</rosparam>-->
+<!--        <rosparam param="algorithm_names">['default']</rosparam>-->
+<!--        <rosparam param="algorithm_ports">['localhost:6060/process']</rosparam>-->
+<!--    </node>-->
+</launch>

@@ -1,0 +1,11 @@
+<launch>
+    <param name="/use_sim_time" value="true" />
+    <group ns="right_arm">
+        <node pkg="roport" type="roport_moveit_server.py" name="roport_moveit_server" output="screen">
+            <rosparam param="group_names">['right_arm']</rosparam>
+            <rosparam param="ee_links">['hand_R_ee_link']</rosparam>
+            <rosparam param="ref_frames">['arm_R_link0']</rosparam>
+        </node>
+    </group>
+
+</launch>

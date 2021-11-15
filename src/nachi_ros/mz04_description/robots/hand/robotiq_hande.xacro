@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robotiq_hand_e">
+  <xacro:macro name="robotiq_hand_e" params="parent name *origin ">
+    <xacro:unless value="${parent == ''}">
+      <joint name="${parent}_${name}_ee_joint" type="fixed">
+        <xacro:insert_block name="origin"/>
+        <parent link="${parent}"/>
+        <child link="${name}_base"/>
+      </joint>
+    </xacro:unless>
+    <link name="${name}_base">
+      <visual>
+        <geometry>
+<!--          <mesh filename="package://mz04_description/meshes/visual/robotiq_hande.dae"/>-->
+          <mesh filename="package://mz04_description/meshes/visual/white-robotiq_hande.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://mz04_description/meshes/collision/robotiq_hande.stl"/>
+        </geometry>
+      </collision>
+
+      <!-- for simulation -->
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="0.05" />
+        <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1" />
+      </inertial>
+      <!-- end for simulation -->
+    </link>
+    <link name="${name}_ee_link"/>
+    <joint name="${name}_ee_joint" type="fixed">
+      <origin xyz="0 0 0.1983" rpy="0 0 -${pi/4}" />
+      <parent link="${name}_base" />
+      <child link="${name}_ee_link" />
+      <axis xyz="0 0 0" />
+    </joint>
+  </xacro:macro>
+</robot>

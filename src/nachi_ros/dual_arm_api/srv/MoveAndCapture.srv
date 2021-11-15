@@ -1,0 +1,22 @@
+# Execute the the robot joint goal commands and capture images
+# If joint_names and joint_positions are not given, it will capture images under the current pose
+# If camera_names are not given, it will only move the robot joints
+
+# Requests
+# random [opt]: if true, will randomly move the joints to a valid pose
+# joint_names [opt]: name(s) of the joints to be moved
+# joint_positions [opt]: goal positions of the joints
+# camera_names [opt]: name(s) of the camera used to capture the images
+
+# Responses
+# images: if camera_names are given, output captured images
+
+bool random
+string[] joint_names
+float64[] joint_positions
+string[] camera_names
+---
+uint8 SUCCEEDED=0
+uint8 FAILED=1
+uint8 result_status
+sensor_msgs/Image[] images

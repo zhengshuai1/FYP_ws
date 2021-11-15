@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<root main_tree_to_execute="BehaviorTree">
+    <!-- ////////// -->
+    <BehaviorTree ID="BehaviorTree">
+        <Sequence>
+            <Sequence>
+                <SetBlackboard name="Set observation pose" output_key="grasp_pose_base" value="0 0 0.02 0 1 0 0"/>
+                <SetBlackboard output_key="final_pose" value="0.2 0.1 0.3 0 1 0 0"/>
+                <Action ID="ExecuteGroupAngularJointStates" goal="0 20 -20 0 -90 0" group_name="left_arm" service_name="execute_group_joint_states" tolerance="0.01"/>
+                <Action ID="ExecuteGroupAngularJointStates" goal="0 20 -20 0 -90 0" group_name="right_arm" service_name="execute_group_joint_states" tolerance="0.01"/>
+            </Sequence>
+            <Repeat num_cycles="2">
+                <Sequence>
+                    <Action ID="ExecuteBinaryAction" device_id="0" enable="0" service_name="execute_gripper_action" value="0"/>
+                    <Action ID="ExecuteBinaryAction" device_id="1" enable="0" name="Open the right gripper" service_name="execute_gripper_action" value="0"/>
+                    <Action ID="ExecuteAllPoses" allow_collision="0" goal_type="0" goals="0.1 -0.1 0.1 0 1 0 0;-0.1 0.1 0.1 0 1 0 0" group_names="left_arm right_arm" service_name="execute_all_poses" stamps="2 2"/>
+                    <Action ID="ExecuteAllPoses" allow_collision="0" goal_type="0" goals="0.1 -0.1 0.05 0 1 0 0;-0.1 0.1 0.05 0 1 0 0" group_names="left_arm right_arm" service_name="execute_all_poses" stamps="2 2"/>
+                    <ForceSuccess>
+                        <Action ID="ExecuteBinaryAction" device_id="0" enable="1" name="Close the left gripper" service_name="execute_gripper_action" value="0.2"/>
+                    </ForceSuccess>
+                    <ForceSuccess>
+                        <Action ID="ExecuteBinaryAction" device_id="1" enable="1" name="Close the gripper" service_name="execute_gripper_action" value="0.8"/>
+                    </ForceSuccess>
+                    <ForceSuccess>
+                        <Action ID="ExecuteAllPoses" allow_collision="0" goal_type="0" goals="0.1 -0.1 0.3 0 1 0 0;-0.1 0.1 0.3 0 1 0 0" group_names="left_arm right_arm" service_name="execute_all_poses" stamps="2 2"/>
+                    </ForceSuccess>
+                    <Action ID="ExecuteBinaryAction" device_id="0" enable="0" service_name="execute_gripper_action" value="0"/>
+                    <Action ID="ExecuteBinaryAction" device_id="1" enable="0" service_name="execute_gripper_action" value="0"/>
+                </Sequence>
+            </Repeat>
+        </Sequence>
+    </BehaviorTree>
+    <!-- ////////// -->
+    <TreeNodesModel>
+        <Action ID="ExecuteAllPlans">
+            <input_port default="0 0 0 0 0 0 1" name="all_poses">Poses for each group to visit, seperate with | for different groups</input_port>
+            <input_port default="0" name="allow_collision"/>
+            <input_port default="panda_arm" name="group_names"/>
+            <input_port default="0" name="is_absolute"/>
+            <input_port default="execute_all_plans" name="service_name"/>
+            <input_port default="1" name="stamps"/>
+        </Action>
+        <Action ID="ExecuteAllPoses">
+            <input_port default="0" name="allow_collision"/>
+            <input_port default="0 0 0 0 0 0 1" name="goals">Goals for each group to reach, seperate with ;</input_port>
+            <input_port default="panda_arm" name="group_names">Names of groups to control, seperate with space</input_port>
+            <input_port default="0" name="is_absolute"/>
+            <input_port default="execute_all_poses" name="service_name"/>
+            <input_port default="1" name="stamps">Time stamps for each group reaching the goal, seperate with space</input_port>
+        </Action>
+        <Action ID="ExecuteBinaryAction">
+            <input_port default="0" name="device_id">ID of the device to be controlled</input_port>
+            <input_port default="0" name="enable">If enable/activate/start the device. For grippers, enable means close the gripper</input_port>
+            <input_port name="service_name">Name of the service. Change this accordingly.</input_port>
+            <input_port default="0" name="value">[Optional] The value used when enabling the target</input_port>
+        </Action>
+        <Action ID="ExecuteGroupAngularJointStates">
+            <input_port default="0 0 0 0 0 0 0" name="goal"/>
+            <input_port default="arm" name="group_name"/>
+            <input_port default="execute_group_joint_states" name="service_name"/>
+            <input_port default="0.01" name="tolerance"/>
+        </Action>
+        <Action ID="ExecuteGroupLinearJointStates">
+            <input_port default="0.04 0.04" name="goal"/>
+            <input_port default="hand" name="group_name"/>
+            <input_port default="execute_group_joint_states" name="service_name"/>
+            <input_port default="0.001" name="tolerance"/>
+        </Action>
+        <Action ID="ExecuteGroupPlan">
+            <input_port default="0" name="allow_collision"/>
+            <input_port default="panda_arm" name="group_name"/>
+            <input_port default="0" name="is_absolute"/>
+            <input_port default="0 0 0.1 0 0 0 1;0 0 -0.1 0 0 0 1" name="poses">Trajectory poses in plan. Each pose is relevant to the last pose.</input_port>
+            <input_port default="execute_group_plan" name="service_name"/>
+            <input_port default="2" name="stamp">Time stamp of the last pose in plan</input_port>
+        </Action>
+        <Action ID="ExecuteGroupPose">
+            <input_port name="constraint"/>
+            <input_port default="0 0 0 0 0 0 1" name="goal"/>
+            <input_port default="0" name="goal_type"/>
+            <input_port default="arm" name="group_name"/>
+            <input_port default="execute_group_pose" name="service_name"/>
+            <input_port default="0.01" name="tolerance"/>
+        </Action>
+        <Action ID="ExecuteGroupPosition">
+            <input_port default="0 0 0" name="goal"/>
+            <input_port default="arm" name="group_name"/>
+            <input_port default="0" name="is_absolute"/>
+            <input_port default="execute_group_position" name="service_name"/>
+            <input_port default="0.005" name="tolerance"/>
+        </Action>
+        <Action ID="GetPreparePose">
+            <input_port default="0" name="is_absolute">If true, the shift vector is wrt the base frame, else wrt the target pose frame</input_port>
+            <input_port default="0 0 0 0 0 0 1" name="pose">Target pose of the end-effector in base reference frame</input_port>
+            <output_port name="pre_pose">The prepare pose in base reference frame</output_port>
+            <input_port default="get_prepare_pose" name="service_name">DO NOT CHANGE</input_port>
+            <input_port default="0 0 -0.2" name="shift">Shift vector pointing from the target pose to prepare pose, in meters</input_port>
+        </Action>
+        <Action ID="GetTransformedPose">
+            <input_port name="pose"/>
+            <input_port default="get_transformed_pose" name="service_name"/>
+            <input_port default="camera_link" name="source_frame"/>
+            <input_port default="base_link" name="target_frame"/>
+            <output_port name="trans_pose"/>
+        </Action>
+        <Action ID="SenseManipulationPoses">
+            <input_port default="0" name="algorithm_id">uint8 Type id of the used algorithm.</input_port>
+            <output_port name="best_pose">Pose Best pose selected from poses</output_port>
+            <input_port default="right_arm_rgb right_arm_depth" name="device_names">Names of the used data capturing devices. Separate with ' '</input_port>
+            <output_port name="poses">PoseArray Manipulation pose of the end-effector in device (i.e., camera) frame</output_port>
+            <input_port default="sense_manipulation_poses" name="service_name">Name of the service, DO NOT CHANGE</input_port>
+        </Action>
+        <Action ID="VisualizePose">
+            <input_port default="base_link" name="frame"/>
+            <input_port name="pose"/>
+            <input_port name="poses"/>
+            <input_port default="visualize_pose" name="service_name"/>
+        </Action>
+    </TreeNodesModel>
+    <!-- ////////// -->
+</root>
+

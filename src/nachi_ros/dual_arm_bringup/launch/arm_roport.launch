@@ -1,0 +1,15 @@
+<launch>
+    <param name="/use_sim_time" value="true" />
+
+    <node pkg="roport" type="roport_moveit_server.py" name="roport_moveit_server" output="screen">
+        <rosparam param="group_names">['arm']</rosparam>
+        <rosparam param="ee_links">['mz04_link6']</rosparam>
+        <rosparam param="ref_frames">['mz04_link0']</rosparam>
+    </node>
+
+    <node pkg="roport" type="roport_control_server" name="roport_control_server" output="screen">
+        <rosparam param="group_names">['arm']</rosparam>
+        <rosparam param="ee_links">['mz04_link6']</rosparam>
+        <param name="reference_frame" value="mz04_link0"/>
+    </node>
+</launch>

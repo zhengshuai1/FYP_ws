@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="left_arm">
+  <xacro:include filename="$(find mz04_description)/robots/mz04_arm.xacro"/>
+  <xacro:include filename="$(find mz04_description)/robots/hand/robotiq_epick.xacro"/>
+  <xacro:arg name="arm_id_1" default="arm_L" />
+
+  <xacro:mz04_arm arm_id="$(arg arm_id_1)"/>
+
+  <xacro:robotiq_epick parent="$(arg arm_id_1)_link6" name="hand_L">
+    <origin xyz="0 0 0" rpy="0 0 -${pi}"/>
+  </xacro:robotiq_epick>
+
+</robot>

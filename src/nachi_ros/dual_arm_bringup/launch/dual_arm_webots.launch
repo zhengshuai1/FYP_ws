@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- start Webots -->
+  <env name="WEBOTS_HOME" value="/usr/local/webots" />
+  <arg name="no-gui" default="false," doc="Start Webots with minimal GUI"/>
+  <arg name="world" default="dual_arm_backup"/>
+
+  <include file="$(find webots_ros)/launch/webots.launch">
+    <arg name="mode" value="pause"/>
+<!--    <arg name="no-gui" value="$(arg no-gui)"/>-->
+    <!-- .. direct from the .ros/ folder in /home/user to user/ -->
+    <!-- This assume the RoUniverse package locates at /home/user -->
+    <arg name="world" value="$(env DUAL_ARM_HOME)/nachi_webots/worlds/$(arg world).wbt"/>
+  </include>
+
+<!--  &lt;!&ndash; Obtain this transform with hand-eye calibration (do not change the link names) &ndash;&gt;-->
+<!--  <node pkg="tf2_ros" type="static_transform_publisher" name="left_ee_to_camera"-->
+<!--        args="0 0 0 0.7071 0.7071 0 0 hand_L_ee_link left_camera_link" />-->
+
+</launch>

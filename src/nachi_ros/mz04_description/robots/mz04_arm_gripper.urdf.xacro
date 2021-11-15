@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mz04_gripper">
+  <xacro:include filename="$(find mz04_description)/robots/mz04_arm.xacro"/>
+  <xacro:include filename="$(find mz04_description)/robots/epick.xacro"/>
+  <xacro:include filename="$(find mz04_description)/robots/hand/robotiq_2f_85.urdf.xacro"/>
+
+  <xacro:arg name="arm_id" default="mz04" />
+
+  <xacro:mz04_arm arm_id="$(arg arm_id)" />
+
+<!--  <xacro:epick parent="$(arg arm_id)_link6" name="hand">-->
+<!--    <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi/2}"/>-->
+<!--  </xacro:epick>-->
+
+  <xacro:robotiq_2f_85 parent="$(arg arm_id)_link6" name="hand">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:robotiq_2f_85>
+
+</robot>

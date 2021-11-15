@@ -1,0 +1,12 @@
+<launch>
+
+<!--  &lt;!&ndash;  hand-eye calibration: mz04_link0 camera_color_optical_frame &ndash;&gt;-->
+<!--    <node pkg="tf2_ros" type="static_transform_publisher" name="dual_arm_camera_link_broadcaster"-->
+<!--        args="0.309045 -0.0104731 0.982099 0.999115 -0.00655622 -0.0143316 -0.0389965 /arm_R_link0 /camera_color_optical_frame" />-->
+<!--    <node pkg="tf2_ros" type="static_transform_publisher" name="dual_arm_camera_link_broadcaster"-->
+<!--        args="0.32403968 -0.01064348  0.98173768 -0.47292673  0.49086634  0.52025092 0.51451873 /arm_R_link0 /camera_link" />-->
+
+<!--    cal6.30 19w: 0.42159521 -0.05183741  1.00713983 -0.00334119 -0.71342158  0.00467536 -0.70071152-->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="dual_arm_camera_link_broadcaster"
+        args="0.42159521 -0.05183741  1.00713983 -0.00334119 -0.71342158  0.00467536 -0.70071152 /arm_R_link0 /camera_link" />
+</launch>
