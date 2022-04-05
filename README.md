@@ -49,7 +49,17 @@ roslaunch dual_arm_bringup dual_arm_webots.launch
 ```
 This command takes a `world` argument, by default, it will be `default`.
 
+搭建自己的webots虚拟环境。另存dual_arm_demo_v1.wbt文件进行自己虚拟环境的搭建，然后命名保存，如dual_arm_demo_(your name).wbt
+保存的文件会在/home/hp/nachi_dual_arm/nachi_webots/worlds文件夹下。
+如果想启动自己的虚拟环境，需要修改dual_arm_webots,launch文件，
+
+```shell script
+<arg name="world" default="dual_arm_demo_v1"/> 更改为你的.wbt文件名称
+```
+然后重新运行上述命令.
+
 then press start button in webots.
+
 ### 2. Start MoveIt! package
 ```shell script
 roslaunch dual_arm_bringup dual_arm_moveit.launch
