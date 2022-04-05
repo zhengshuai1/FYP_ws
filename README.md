@@ -28,7 +28,7 @@ This package hosts the configuration files, models, and programs for simulating 
 3. Add the line `export DUAL_ARM_HOME=/home/$USER/nachi_dual_arm` into your `.bashrc` or `.zshrc` file. 
    This assumes that you have put this repository to your home folder. You can change the path accordingly.
    
-# Usage
+## Usage
 Firstly, create and build a catkin workspace:
 ```shell script
 $ mkdir -p ~/FYP_ws/src
@@ -58,7 +58,7 @@ This command takes a `world` argument, by default, it will be `default`.
 ```
 然后重新运行上述命令.
 
-then press start button in webots.
+then press start button in webots. 点击开始按钮。
 
 ### 2. Start MoveIt! package
 ```shell script
@@ -73,4 +73,24 @@ roslaunch dual_arm_bringup dual_arm_roport.launch
 # you can create a virtual environment to run this command
 # move to dual_arm_bringup/scripts folder
 python dual_arm_grasp_test.py
+```
+## 注意：
+
+四条运行命令依次在四个终端中运行，如果前三个终端中出现错误，请重启所有前三个终端中。
+
+在dual_arm_grasp_test.py的simple_test的函数中：
+
+### 1.
+```shell script
+pose0 = Transform.from_list([0.35, 0.1, 0.05, 1, 0, 0, 0])
+该函数共有七个参数, 分别为在机器人基坐标系下的位置(x,y,z)和姿态(qx,qy,qz,qw)
+```
+具体请参考:
+
+![机器人坐标系](./src/doc/robot_frame.png)
+
+### 1.
+```shell script
+trajectory1 = [pose1, pose2] # trajectory1 包含pose1, pose2两个位置点
+self.execute_trajectory(group_name, trajectory1) #让机器人执行trajectory1运动
 ```

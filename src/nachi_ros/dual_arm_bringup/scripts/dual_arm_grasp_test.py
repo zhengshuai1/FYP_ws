@@ -91,7 +91,8 @@ class NachiGraspController(object):
             cnt -=1
         rospy.loginfo("finish grasp loop")
 
-
+    def simple_test(self):
+        pose0 = Transform.from_list([0.35, 0.1, 0.05, 1, 0, 0, 0])
 def main():
     rospy.init_node("nachi_dual_arm_grasp")
     print('dual arms is starting')
