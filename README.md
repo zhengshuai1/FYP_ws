@@ -66,10 +66,16 @@ This command takes a `world` argument, by default, it will be `default`.
 ### 2. Start MoveIt! package
 ```shell script
 roslaunch dual_arm_bringup dual_arm_moveit.launch
+
+当界面出现 you can start planning now! 说明启动成功!
+
+否则说明webots开始按钮没有按下.
 ```
 ### 3. Start roport functional package
 ```shell script
 roslaunch dual_arm_bringup dual_arm_roport.launch
+
+当界面出现 Roport: MoveIt sever ready! 说明启动成功!
 ```
 ### 4. Start python control demo program
 ```shell script
