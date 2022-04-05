@@ -59,7 +59,9 @@ roslaunch dual_arm_bringup dual_arm_webots.launch
 ```
 This command takes a `world` argument, by default, it will be `default`.
 
-then press start button in webots. 点击开始按钮。
+**then press start button in webots. 点击开始按钮。** 
+如果不开始运行仿真的话，后面三个终端的程序无法启动。
+
 
 ### 2. Start MoveIt! package
 ```shell script
