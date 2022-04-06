@@ -133,6 +133,10 @@ python dual_arm_grasp_test.py
 ```shell script
 pose0 = Transform.from_list([0.35, 0.1, 0.05, 1, 0, 0, 0])
 该函数共有七个参数, 分别为在机器人基坐标系下的位置(x,y,z)和姿态(qx,qy,qz,qw)
+# (x,y,z)坐标范围, 单位：m：
+#x:[0.1, 0.4]
+#y:[-0.2, 0.2]
+#z:[-0.1, 0.4]
 ```
 具体请参考:
 
