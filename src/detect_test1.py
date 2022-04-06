@@ -9,11 +9,11 @@ def detect_corners(img, gray):
     corners = np.squeeze(corners)
     # 按照x坐标排序
     sort_corners = corners[np.argsort(corners[:, 0])]
-    print(sort_corners.shape, sort_corners)
+    # print(sort_corners.shape, sort_corners)
     for i in sort_corners:
         x, y = i.ravel()
         cv.circle(img, (x, y), 9, (0, 0, 255), -1)
-    print(f'第一条边和第四条边之间的距离为{sort_corners[0, 0] - sort_corners[-1, 0]} pixel')
+    print(f'第一条边和第四条边之间的距离为{sort_corners[-1, 0] - sort_corners[0, 0]} pixel')
 
 
 filename = './doc/image4.png'
