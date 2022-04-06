@@ -45,6 +45,13 @@ source ~/FYP_ws/devel/setup.bash
 搭建自己的webots虚拟环境。另存dual_arm_demo_v1.wbt文件进行自己虚拟环境的搭建，然后命名保存，如dual_arm_demo_(your name).wbt
 保存的文件会在/home/hp/nachi_dual_arm/nachi_webots/worlds文件夹下。
 
+webots的使用请参考：
+[webots Tutorial 1, 2, 3](https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots)
+
+**注意：** 当修改world文件时，必须确保仿真是暂停的，并且虚拟时间为0（the simulation is paused and is at a virtual time of 0.） 
+，如果不为0，需要点击reset simulation按钮，然后修改。
+
+当想要保存修改的world时，可以点击File / Save World， 
 - 导入自己的工件
 
 从solidworks中导出的stl文件，单位必须为**m**。
@@ -65,6 +72,8 @@ source ~/FYP_ws/devel/setup.bash
 
 为了能够得到合适的物体图片，需要确定工件和相机的位置。
 相机的位置可以图中所示的translation和rotation改变。
+
+
 
 设置好之后机器人就能抓取物体了。
 
@@ -95,7 +104,7 @@ roslaunch dual_arm_bringup dual_arm_moveit.launch
 
 当界面出现 you can start planning now! 说明启动成功!
 
-否则说明webots开始按钮没有按下.
+否则说明webots开始按钮没有按下。
 ```
 ### 3. Start roport functional package
 ```shell script
@@ -106,12 +115,17 @@ roslaunch dual_arm_bringup dual_arm_roport.launch
 ### 4. Start python control demo program
 ```shell script
 # you can create a virtual environment to run this command
+# 现在可以直接使用已经建好的虚拟环境， 输入：
+dp2.7
 # move to dual_arm_bringup/scripts folder
+roscd dual_arm_bringup/scripts
+# 启动python脚本
 python dual_arm_grasp_test.py
 ```
+
 ## 注意：
 
-四条运行命令依次在四个终端中运行，如果前三个终端中出现错误，请重启所有前三个终端中。
+四条运行命令必须依次在四个终端中运行，只有上一个命令运行成功之后，才能运行下一个命令。如果前三个终端中出现错误，请重启所有前三个终端中。
 
 在dual_arm_grasp_test.py的simple_test的函数中：
 
