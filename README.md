@@ -40,18 +40,44 @@ then  source your workspace, add the following code to your .bashrc file:
 ```shell script
 source ~/FYP_ws/devel/setup.bash
 ```
+## 从这里开始：
 
 搭建自己的webots虚拟环境。另存dual_arm_demo_v1.wbt文件进行自己虚拟环境的搭建，然后命名保存，如dual_arm_demo_(your name).wbt
 保存的文件会在/home/hp/nachi_dual_arm/nachi_webots/worlds文件夹下。
+
+- 导入自己的工件
+
+从solidworks中导出的stl文件，单位必须为**m**。
+再导入webots中，保持默认选项，![导入](./src/doc/solid.png)
+
+然后webots scene tree中会出现导入的物体，
+
+![solod](./src/doc/import.png)
+
+将children中的solid复制出来，paste到scene tree的最后，将原有的solid删除，这样可以避免定义两次bounding object 和physics。
+
+- 定义bounding object和physics
+
+![bounding object](./src/doc/bounding%20box.png)
+
+可以点击 view/optional rendering/show all bounding box, 查看 bounding box与物体模型的重合程度，近似就行，不用那么精确。
+- 拍照位置
+
+为了能够得到合适的物体图片，需要确定工件和相机的位置。
+相机的位置可以图中所示的translation和rotation改变。
+
+设置好之后机器人就能抓取物体了。
+
+![camera](./src/doc/camera.png)
+
+### 1. Start the Webots simulation
+
 如果想启动自己的虚拟环境，需要修改dual_arm_webots,launch文件，
 
 ```shell script
 <arg name="world" default="dual_arm_demo_v1"/> 更改为你的.wbt文件名称
 ```
 然后重新运行以下命令。
-
-### 1. Start the Webots simulation
-
 You can start a simulation scenario for the nachi robot with the command:
 
 ```shell script
