@@ -145,7 +145,7 @@ self.execute_trajectory(group_name, trajectory1) #让机器人执行trajectory1�
 ```
 
 ### 3
-关于使用角点检测，来计算判断距离，请参考detect_test1.py
+关于使用角点检测，来计算判断距离，请参考src/detect_test1.py
 ``` python
 import numpy as np
 import cv2 as cv
