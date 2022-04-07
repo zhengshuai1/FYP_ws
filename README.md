@@ -183,7 +183,11 @@ pose_test = Transform.from_list([0.5, -0.05, 0.4, 0, 1, 0, 0])
 pose_test.rotation = Rotation.from_euler('YZX', [180, 45, 0], degrees=True)
 ```
 ![detect_demo](./src/doc/pose2.png)
-
+- gripper转动
+``` python
+# gripper 在当前姿态下绕gripper的对称轴旋转var度
+pose_test.rotation = Rotation.from_euler('YZX', [variable, var, 0], degrees=True)
+```
 
 ### 2
 关于使用角点检测，来计算判断距离，请参考src/detect_test1.py
