@@ -141,6 +141,21 @@ pose0 = Transform.from_list([0.35, 0.1, 0.05, 1, 0, 0, 0])
 具体请参考:
 
 ![机器人坐标系](./src/doc/robot_frame.png)
+- pose1
+``` python
+pose_test = Transform.from_list([0.33, -0.05, 0.2, 0, 1,  0., 0.])
+pose_test.translation = [0.33, -0.05, 0.3]
+手抓方向为水平，如要旋转gripper的角度，可以变化var [90, var, 0]
+pose_test.rotation = Rotation.from_euler('YZX', [90, 0, 0], degrees=True)
+```
+![detect_demo](./src/doc/pose1.png)
+- pose2
+``` python
+pose_test = Transform.from_list([0.5, -0.05, 0.4, 0, 1, 0, 0])
+# gripper 从竖直向下的姿态，绕竖直线旋转45度, 如要旋转gripper的角度，可以变化var [180, var, 0]
+pose_test.rotation = Rotation.from_euler('YZX', [180, 45, 0], degrees=True)
+```
+![detect_demo](./src/doc/pose2.png)
 
 ### 2
 ```shell script
