@@ -131,9 +131,10 @@ python dual_arm_grasp_test.py
 
 ### 1. 示例代码
 ``` python
+#基本流程：定义预抓取点，抓取点，向上回退点（可以和预抓取点相同），移动路径中间点，物体放置点。
 #定义两个位置点pose0, pose1 (末端工具中心TCP的位置）
-pose0 = Transform.from_list([0.33, -0.05, 0.25, 0, 1, 0., 0.])
-pose1 = Transform.from_list([0.33, -0.05, 0.2, 0, 1,  0, 0])
+pose0 = Transform.from_list([0.33, -0.05, 0.25, 0, 1, 0., 0.]) #预抓取点
+pose1 = Transform.from_list([0.33, -0.05, 0.2, 0, 1,  0, 0]) #抓取点
 #Transform.from_list该函数共有七个参数, 分别为在机器人基坐标系下的位置(x,y,z)和姿态(qx,qy,qz,qw)
 # (x,y,z)坐标范围, 单位：m：
 #x:[0.1, 0.4]
@@ -144,17 +145,17 @@ pose1 = Transform.from_list([0.33, -0.05, 0.2, 0, 1,  0, 0])
 group_name = 'right_arm'
 trajectory1 = [pose0, pose1] # 机器人的运动轨迹包含两个位置点pose0, pose1
 self.execute_trajectory(group_name, trajectory1) #机器人执行轨迹的命令
-self.control_gripper('close') # 闭合gripper
+self.control_gripper('close') # 闭合gripper，抓取
 
-pose3 = Transform.from_list([0.33, -0.05, 0.2, 0, 1,  0., 0.])
-# gripper 从竖直向下的姿态，绕竖直线旋转90度
-pose_test = Transform.from_list([0.5, -0.05, 0.4, 0, 1, 0, 0])
+pose3 = Transform.from_list([0.33, -0.05, 0.2, 0, 1,  0., 0.]) # 示例移动路径中间点
+# gripper 从竖直向下的姿态，绕竖直线旋转45度
+pose_test = Transform.from_list([0.5, -0.05, 0.4, 0, 1, 0, 0]) #物体放置点
 pose_test.translation = [0.33, -0.05, 0.3] # pose_test的平移
 pose_test.rotation = Rotation.from_euler('YZX', [180, 45, 0], degrees=True) # pose_test的旋转
 
 trajectory = [pose3, pose_test]
 self.execute_trajectory(group_name, trajectory)
-self.control_gripper('open') # 开启gripper
+self.control_gripper('open') # 开启gripper，放置物体
 ```
 修改程序后，ctrl+s保存程序，然后重新运行'python dual_arm_grasp_test.py'
 
