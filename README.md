@@ -131,7 +131,7 @@ python dual_arm_grasp_test.py
 
 ### 1. 示例代码
 ``` python
-#定义两个位置点pose0, pose1
+#定义两个位置点pose0, pose1 (末端工具中心TCP的位置）
 pose0 = Transform.from_list([0.33, -0.05, 0.25, 0, 1, 0., 0.])
 pose1 = Transform.from_list([0.33, -0.05, 0.2, 0, 1,  0, 0])
 #Transform.from_list该函数共有七个参数, 分别为在机器人基坐标系下的位置(x,y,z)和姿态(qx,qy,qz,qw)
