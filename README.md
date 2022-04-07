@@ -134,6 +134,10 @@ python dual_arm_grasp_test.py
 ### 1. 示例代码
 ``` python
 #基本流程：定义预抓取点，抓取点，向上回退点（可以和预抓取点相同），移动路径中间点，物体放置点。
+
+#增加初始位置点，改变机器人的水平状态，让机器人的动作更好规划，否则机器人可能规划失败，无法移动。
+pose_init = Transform.from_list([0.33, 0, 0.25, 0, 1, 0., 0.]) #初始位置点
+self.execute_trajectory(group_name, [pose_init]) #机器人执行轨迹的命令
 #定义两个位置点pose0, pose1 (末端工具中心TCP的位置）
 pose0 = Transform.from_list([0.33, -0.05, 0.25, 0, 1, 0., 0.]) #预抓取点
 pose1 = Transform.from_list([0.33, -0.05, 0.2, 0, 1,  0, 0]) #抓取点
