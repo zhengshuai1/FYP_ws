@@ -129,14 +129,19 @@ python dual_arm_grasp_test.py
 
 在dual_arm_grasp_test.py的simple_test的函数中：
 
-### 1.
-```shell script
+### 1. 示例代码
+``` python
+#定义两个位置点pose0, pose1
 pose0 = Transform.from_list([0.35, 0.1, 0.05, 1, 0, 0, 0])
-该函数共有七个参数, 分别为在机器人基坐标系下的位置(x,y,z)和姿态(qx,qy,qz,qw)
+pose1 = Transform.from_list([0.35, 0.1, 0.2, 1, 0, 0, 0])
+Transform.from_list该函数共有七个参数, 分别为在机器人基坐标系下的位置(x,y,z)和姿态(qx,qy,qz,qw)
 # (x,y,z)坐标范围, 单位：m：
 #x:[0.1, 0.4]
 #y:[-0.2, 0.2]
 #z:[-0.1, 0.4]
+#需要在机器人的工作范围内设置合理的位置点，否则机器人无法执行。
+trajectory1 = [pose0, pose1] # 机器人的运动轨迹包含两个位置点pose0, pose1
+self.execute_trajectory(group_name, trajectory1) #机器人执行轨迹的命令
 ```
 具体请参考:
 
