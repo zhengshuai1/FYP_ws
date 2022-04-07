@@ -132,18 +132,33 @@ python dual_arm_grasp_test.py
 ### 1. 示例代码
 ``` python
 #定义两个位置点pose0, pose1
-pose0 = Transform.from_list([0.35, 0.1, 0.05, 1, 0, 0, 0])
-pose1 = Transform.from_list([0.35, 0.1, 0.2, 1, 0, 0, 0])
-Transform.from_list该函数共有七个参数, 分别为在机器人基坐标系下的位置(x,y,z)和姿态(qx,qy,qz,qw)
+pose0 = Transform.from_list([0.33, -0.05, 0.25, 0, 1, 0., 0.])
+pose1 = Transform.from_list([0.33, -0.05, 0.2, 0, 1,  0, 0])
+#Transform.from_list该函数共有七个参数, 分别为在机器人基坐标系下的位置(x,y,z)和姿态(qx,qy,qz,qw)
 # (x,y,z)坐标范围, 单位：m：
 #x:[0.1, 0.4]
 #y:[-0.2, 0.2]
 #z:[-0.1, 0.4]
 #需要在机器人的工作范围内设置合理的位置点，否则机器人无法执行。
+
+group_name = 'right_arm'
 trajectory1 = [pose0, pose1] # 机器人的运动轨迹包含两个位置点pose0, pose1
 self.execute_trajectory(group_name, trajectory1) #机器人执行轨迹的命令
+self.control_gripper('close') # 闭合gripper
+
+pose3 = Transform.from_list([0.33, -0.05, 0.2, 0, 1,  0., 0.])
+# gripper 从竖直向下的姿态，绕竖直线旋转90度
+pose_test = Transform.from_list([0.5, -0.05, 0.4, 0, 1, 0, 0])
+pose_test.translation = [0.33, -0.05, 0.3] # pose_test的平移
+pose_test.rotation = Rotation.from_euler('YZX', [180, 45, 0], degrees=True) # pose_test的旋转
+
+trajectory = [pose3, pose_test]
+self.execute_trajectory(group_name, trajectory)
+self.control_gripper('open') # 开启gripper
 ```
-具体请参考:
+修改程序后，ctrl+s保存程序，然后重新运行'python dual_arm_grasp_test.py'
+
+坐标系请参考:
 
 ![机器人坐标系](./src/doc/robot_frame.png)
 - pose1
@@ -162,13 +177,8 @@ pose_test.rotation = Rotation.from_euler('YZX', [180, 45, 0], degrees=True)
 ```
 ![detect_demo](./src/doc/pose2.png)
 
-### 2
-```shell script
-trajectory1 = [pose1, pose2] # trajectory1 包含pose1, pose2两个位置点
-self.execute_trajectory(group_name, trajectory1) #让机器人执行trajectory1运动
-```
 
-### 3
+### 2
 关于使用角点检测，来计算判断距离，请参考src/detect_test1.py
 ``` python
 import numpy as np
