@@ -158,6 +158,9 @@ def simple_test(self):
    pose_test = Transform.from_list([0.5, -0.05, 0.4, 0, 1, 0, 0]) #物体放置点
    pose_test.translation = [0.33, -0.05, 0.3] # pose_test的平移
    pose_test.rotation = Rotation.from_euler('YZX', [180, 45, 0], degrees=True) # pose_test的旋转
+   trajectory = [pose3, pose_test]
+   self.execute_trajectory(group_name, trajectory)
+   self.control_gripper('open') # 开启gripper，放置物体
    ### 图像获取
    img_resp = self.get_img_data()
    imgs = img_resp.images
@@ -175,12 +178,14 @@ def simple_test(self):
    # your function 比如:
    flag = is_object_qualified(img_np) # 传入图像，判断是否合格
    
-   
-   trajectory = [pose3, pose_test]
-   self.execute_trajectory(group_name, trajectory)
-   self.control_gripper('open') # 开启gripper，放置物体
+   #如果合格，则放置在一个位置；如果不合格，则放置在另外的位置。
+   if flag:
+      # 
+   else:
+      #
 
-def is_object_qualified(self, img_np):
+
+def is_object_qualified(self, img):
    import cv2 as cv
    gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
    corners = cv.goodFeaturesToTrack(gray, 25, 0.01, 10)
@@ -205,7 +210,6 @@ def is_object_qualified(self, img_np):
 修改程序后，ctrl+s保存程序，然后重新运行'python dual_arm_grasp_test.py'
 
 坐标系请参考:
-
 ![机器人坐标系](./src/doc/robot_frame.png)
 - pose1
 ``` python
