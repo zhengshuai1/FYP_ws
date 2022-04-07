@@ -158,10 +158,29 @@ pose3 = Transform.from_list([0.33, -0.05, 0.2, 0, 1,  0., 0.]) # 示例移动路
 pose_test = Transform.from_list([0.5, -0.05, 0.4, 0, 1, 0, 0]) #物体放置点
 pose_test.translation = [0.33, -0.05, 0.3] # pose_test的平移
 pose_test.rotation = Rotation.from_euler('YZX', [180, 45, 0], degrees=True) # pose_test的旋转
+### 图像获取
+img_resp = self.get_img_data()
+imgs = img_resp.images
+img_np = ros_numpy.numpify(imgs[0])[:, :, ::-1] # RGB图像
+depth_np = ros_numpy.numpify(imgs[1]) # 深度图像
+#print(img_np.shape, depth_np.shape)
+
+#图像展示
+plt.subplot(1, 2, 1)
+plt.imshow(img_np)
+plt.subplot(1, 2, 2)
+plt.imshow(depth_np)
+plt.show()
+
+# your function 比如:
+flag = is_object_qualified(img_np) # 传入图像，判断是否合格
+
 
 trajectory = [pose3, pose_test]
 self.execute_trajectory(group_name, trajectory)
 self.control_gripper('open') # 开启gripper，放置物体
+
+
 ```
 修改程序后，ctrl+s保存程序，然后重新运行'python dual_arm_grasp_test.py'
 
@@ -187,6 +206,9 @@ pose_test.rotation = Rotation.from_euler('YZX', [180, 45, 0], degrees=True)
 ``` python
 # gripper 在当前姿态下绕gripper的对称轴旋转var度
 pose_test.rotation = Rotation.from_euler('YZX', [variable, var, 0], degrees=True)
+```
+``` python
+
 ```
 
 ### 2
